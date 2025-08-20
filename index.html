@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quarterly Earnings — Interactive RevealJS Deck</title>
+
+  <!-- RevealJS core CSS & theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+
+  <!-- Code syntax highlighting theme (Highlight.js via Reveal plugin) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css">
+
+  <style>
+    .reveal .slides section .email { font-size: 0.7em; opacity: 0.8; }
+    .reveal footer { position: absolute; bottom: 10px; left: 20px; font-size: 0.55em; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title / opener with fragments & speaker notes -->
+      <section>
+        <h1>Q2 FY2025 Earnings Report</h1>
+        <p class="email">Prepared by: 23f2002820@ds.study.iitm.ac.in</p>
+        <ul>
+          <li class="fragment">Modern, interactive stakeholder experience</li>
+          <li class="fragment">Auto-layout, speaker notes & live demos</li>
+          <li class="fragment">Markdown, code, and math support</li>
+        </ul>
+        <aside class="notes">
+          Welcome everyone. Use <kbd>S</kbd> to open presenter view with speaker notes.
+          Advance bullet points with each click to pace the narrative.
+        </aside>
+      </section>
+
+      <!-- Markdown slide -->
+      <section data-markdown>
+        <textarea data-template>
+## Executive Highlights *(Markdown slide)*
+- **Revenue Growth:** +12% YoY; **QoQ:** +3.4%
+- **Operating Margin:** 18.2% (▲ 120 bps YoY)
+- **EPS (Diluted):** \$2.41 (▲ 9% YoY)
+- **Cash & Equivalents:** \$4.9B; **Net Debt:** \$2.1B
+
+> Tip: This slide is authored in **Markdown** using Reveal's Markdown plugin.
+        </textarea>
+      </section>
+
+      <!-- KPI slide with fragments -->
+      <section>
+        <h2>Key Performance Indicators</h2>
+        <div class="fragment">ARR: $5.1B (▲ 14% YoY)</div>
+        <div class="fragment">Gross Margin: 71.4%</div>
+        <div class="fragment">Free Cash Flow: $612M</div>
+        <div class="fragment">Customer Retention: 94.7%</div>
+        <aside class="notes">Pause on each KPI; provide color behind drivers and seasonality.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h2>Code Sample: NPV in Python</h2>
+        <pre><code class="language-python">from decimal import Decimal
+
+def npv(rate, cashflows):
+    rate = Decimal(str(rate))
+    return sum(Decimal(str(cf)) / (1 + rate) ** t for t, cf in enumerate(cashflows, start=1))
+
+print(npv(0.1, [100, 120, 150]))
+</code></pre>
+        <aside class="notes">Showcase technical rigor: quick demo of a finance utility in Python with syntax highlighting.</aside>
+      </section>
+
+      <!-- Math slide using KaTeX via Reveal Math plugin -->
+      <section data-markdown>
+        <textarea data-template>
+### Financial Formulas (Math)
+**Present Value of Cash Flows**
+$$ PV = \sum_{t=1}^{T} \frac{CF_t}{(1 + r)^t} $$
+
+**Weighted Average Cost of Capital (WACC)**
+$$ \text{WACC} = \frac{E}{D+E} r_e + \frac{D}{D+E} r_d (1 - \tau) $$
+
+**Dividend Discount (Gordon Growth)**
+$$ P_0 = \frac{D_1}{r - g} $$
+        </textarea>
+        <aside class="notes">Revisit discount rates and sensitivity to r and g. Mention risk-free rate context.</aside>
+      </section>
+
+      <!-- Closing / Q&A -->
+      <section>
+        <h2>Q&A</h2>
+        <p>Slides & assets are hosted on GitHub Pages.</p>
+        <p><small>Refresh cached content by appending <code>?v=1</code>, <code>?v=2</code>, etc. to the URL.</small></p>
+        <aside class="notes">Invite questions. Offer to deep-dive KPIs or model assumptions live.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>Use arrow keys to navigate • Press <strong>F</strong> for full screen • Press <strong>S</strong> for speaker notes</footer>
+
+  <!-- RevealJS core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Configure KaTeX for math rendering
+      math: {
+        katex: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js',
+        katexCss: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css'
+      }
+    });
+  </script>
+</body>
+</html>
